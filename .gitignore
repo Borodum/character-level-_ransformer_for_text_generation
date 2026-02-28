@@ -224,3 +224,7 @@ env/
 
 # datafile
 input.txt
+
+# checkpoints
+checkpoints/
+checkpoints_tiny/
