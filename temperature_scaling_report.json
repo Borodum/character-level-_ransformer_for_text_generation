@@ -1,0 +1,29 @@
+[
+  {
+    "temperature": 0.7,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0832,
+    "line_score_mean": 58.6699,
+    "cer_mean": 0.82,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nGLOUCESTER:\nBut the crown and my heart a deserve is poor all\nHereford to the from the consults kep a roson!\nAnd shall marks him speak up thy hath charles,\nOf if thy boy mind on at good the sing,\nWhat in a a thought the wailt this craclaim,\nOr good it that much any hought his soul:\nA sup'd in out of the case of your what,\nAnd the father in the a paint of the tongue.\n\nUphOurd:\nIf this cousiness is disst it him his but provess!\nWhich heard our that said the the pressence,\nWhich more in thy should"
+  },
+  {
+    "temperature": 1.0,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0868,
+    "line_score_mean": 60.0522,
+    "cer_mean": 0.8018,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nBRAKENBELA:\nTherefore maketh on, gravins, which he hate waint fly\nWull heart's place.\n\nJOHN OF KE EWARDONE:\nNay, let I know me so she sevet, and thou cousy.\nAy, thy will, sir, and thou never with towards\nMire with friends: here'll you; I'Caus say:\nMaster that I lay weight, who whill's do be foucker heart\nIf suice of thine of your dighterss nough,\nTitto sincess woe heaves be or the cortan-straide\nOf mether livest my souldier and ears the heir.\n\nCORIOLANUS:\nI'll do\nA laws foe that weep, in a in "
+  },
+  {
+    "temperature": 1.3,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0968,
+    "line_score_mean": 43.0214,
+    "cer_mean": 0.8286,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\nNow; be young is read noot by to percious:\nMethinks thy shade; wome!\nGive child, 'tis butpove sits a loyal:\nLeads, Jumb Servent laid your'll lord?\nMa's bluotunds, follow?\nOur the pen's frieht scortap-buch,\nBut new'vit hirad thlumbghame you? Rom?\n\nQUAEENT:\nWe are he, he would thee worlzey\nWhom heads where night.\nLockemnd is he's timelars, is too thirvains.\nLet's is navehLong tallongue, accarts? amay.\n\nWARRWICK:S'! whould, should,\nAnd, steem soufice you kiffect: ast fie\nThese hath case and you; f"
+  }
+]
