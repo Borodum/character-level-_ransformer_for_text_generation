@@ -12,3 +12,36 @@
 -	Mirostat (Adaptive dynamic sampling)
 ####	Research Question: How do these eight sampling strategies compare in managing the trade-off between output diversity and textual coherence in character-level text generation? Specifically, which methods produce the most "Shakespearean-like" text while avoiding the pitfalls of repetition (greedy methods) or incoherence (high-temperature methods)?
 ####	Sampling methods strongly affect generative models but lack systematic study. Character-level models offer a simple testbed. This research will give clear, reusable insights into when and how to use each method.
+
+## Temperature Scaling Experiment
+
+This branch adds a dedicated temperature-scaling evaluation that mirrors the greedy baseline metrics:
+- Validation Loss
+- Perplexity (PPL)
+- Type-Token Ratio (TTR)
+- Shakespearean Line Structure Score
+- Character Error Rate (CER)
+
+### Files
+- `temperature_scaling.ipynb`: notebook workflow for interactive runs
+- `temperature_scaling.py`: CLI script for repeatable runs
+
+### Run (CLI)
+Required artifacts (from preprocessing + baseline training):
+- `val.npy`
+- `char_to_idx.pkl`
+- `idx_to_char.pkl`
+- `greedy_model.pth`
+
+```bash
+python temperature_scaling.py \
+  --model-path greedy_model.pth \
+  --val-path val.npy \
+  --char-to-idx char_to_idx.pkl \
+  --idx-to-char idx_to_char.pkl \
+  --temperatures 0.7 1.0 1.3 \
+  --runs 5 \
+  --max-length 500
+```
+
+The script saves aggregated results to `temperature_scaling_report.json`.
