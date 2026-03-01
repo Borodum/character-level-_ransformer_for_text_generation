@@ -45,3 +45,36 @@ python temperature_scaling.py \
 ```
 
 The script saves aggregated results to `temperature_scaling_report.json`.
+
+## Top-k Experiment
+
+This branch also includes top-k sampling evaluation with the same metrics:
+- Validation Loss
+- Perplexity (PPL)
+- Type-Token Ratio (TTR)
+- Shakespearean Line Structure Score
+- Character Error Rate (CER)
+
+### Files
+- `top_k.ipynb`: notebook workflow
+- `top_k.py`: CLI script
+
+### Run (PowerShell)
+Required artifacts:
+- `val.npy`
+- `char_to_idx.pkl`
+- `idx_to_char.pkl`
+- `greedy_model.pth`
+
+```powershell
+python top_k.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --k-values 10 40 100 `
+  --runs 5 `
+  --max-length 500
+```
+
+The script saves results to `top_k_report.json`.

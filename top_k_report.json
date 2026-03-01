@@ -1,0 +1,29 @@
+[
+  {
+    "k": 10,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0832,
+    "line_score_mean": 53.5459,
+    "cer_mean": 0.8204,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\nI must are in hore, thou thank, as are hand?\n\nShepherd:\nNay he in the people.\n\nSICINIUS:\nMast the soul, sin, throughs, but longer,\nWhere more made and their where servence,\nWil not me; which is to much for withom, being,\nFor high sould sugile: stune master.\nO he spark found a fatest thou art sweet a he.\n\n\nSISAPSA:\nIf hoursands is subbject be their brought his speaks.\nThat swould they will; shake thee are abase them?\n\nMERWASTIUS:\nNow back:\nI thank you marrright fierss and shame thou will\nWe are "
+  },
+  {
+    "k": 40,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0904,
+    "line_score_mean": 55.3197,
+    "cer_mean": 0.8186,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nBUCKINGHAM:\nHow for her frief wors with, I hope comest\nhis strongle coour own enstity.\n\nGRICES:\nHow is the consetor, I shall an thee; and my sea,\nAnd, all they save to shoulds her, shall puch\nAll I said to whose shapperal to the right.\n\nSherd OrSo; my forth him;---\nGo't thy base.\n\nKING RICHARD IIII:\nNow deedct at honest to thy him?\n\nDUKE BOL ER$:\nThat will marrriks noble and whiph anger and and calm!\nThat buniest of the courd pupon, therefore abbed\nThis freest this nush honour'd heaven are.\nSt"
+  },
+  {
+    "k": 100,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0861,
+    "line_score_mean": 65.2167,
+    "cer_mean": 0.8146,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nPOLIXES:\nBy forey, which Johnies shrapes night!\nBut pity weeks so sake enour these forey\nBut on pals it, that my long. What I will were kil\nTo you dissigh his grainst, behold unductime,\nSconded he foest leament such\nFdrom too done with hearth, thou chomads tallss,\nspire as sthy doubsion, this spubjfud hither:\nShould he foest thus how yourself rabbours,\nThat are banaused not comforters suy.\nWe he masters,\nMyself 'Wit that plaise of our mackenss you,\nNot would as are!\n\nClomest, must not a dursh?"
+  }
+]
