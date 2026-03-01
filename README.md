@@ -45,3 +45,35 @@ python temperature_scaling.py \
 ```
 
 The script saves aggregated results to `temperature_scaling_report.json`.
+
+## Beam Search Experiment
+
+This branch also includes beam-search decoding evaluation with the same metrics:
+- Validation Loss
+- Perplexity (PPL)
+- Type-Token Ratio (TTR)
+- Shakespearean Line Structure Score
+- Character Error Rate (CER)
+
+### Files
+- `beam_search.ipynb`: notebook workflow
+- `beam_search.py`: CLI script
+
+### Run (PowerShell)
+Required artifacts:
+- `val.npy`
+- `char_to_idx.pkl`
+- `idx_to_char.pkl`
+- `greedy_model.pth`
+
+```powershell
+python beam_search.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --beam-widths 3 5 `
+  --max-length 500
+```
+
+The script saves results to `beam_search_report.json`.
