@@ -1,0 +1,29 @@
+[
+  {
+    "tau": 0.8,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0814,
+    "line_score_mean": 63.108,
+    "cer_mean": 0.8046,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nDUCHES OF YORK:\nNow me to the points for an crapted with fliess\nAnd my beast, lords, how thy heads; hows you must monis\nMust it sue, madarr, that well have too.\n\nLUCIO:\nWell, say hath you some compose;\nFor he neeved whith do at son; yet how his hopes\nand set mark foult a much, net said here.\n\nHASTINGS:\nI in he need hear and I did despent our wereed.\n\nNORMTERT:\nSuch sto honests be whith ne'st.\n\nShech, Gervence, stouck you grave.\n\nPERCY:\nThy come, one of did warr!\n\nThomRe:\nWhere's soul!\n\nMarrch'"
+  },
+  {
+    "tau": 0.9,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0857,
+    "line_score_mean": 60.658,
+    "cer_mean": 0.8114,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nDUCHES OF YORK:\nHe am not him.\n\nPARIS:\nThou boy'st in wears should I ne'er by fiers;\nAnd sall hold is not more of my proud's carcoused\nWith welch silts, a revered words in your preace;\nWhich doner out, in their of our down.\n\nKING RICHARD III:\nBut stay, march, what there? four not I shaw\nTo say all paress.\n\nFirst Sermon:\nWhith is thou thou foul downds, come,\nOnce is the loveds of the for hourse.\n\nGLOUCESTER:\nThou world to we morre to our away?\nYou and himself: who, and are out his but tongue to"
+  },
+  {
+    "tau": 0.95,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0871,
+    "line_score_mean": 54.3112,
+    "cer_mean": 0.8139,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nMENENIUS:\nIf would down sometius place\nOf his servel unhame of you knowle perse,\nYou fack of your loves by breare, how\nThat defed upon make we the fires, takes my the corable;\nAnd honour that that his nearshing tongue,\nHow heaven of more outher, which cloud band,\nBy whould may soul, in in oursel.\n\nSICOP OF GRORGld:\nAnd whomand but sain, beat that think, as foe them\nBoth honour of a much'd tongue us, by littlem'd with pletty\noursel fair a commany.\nBut thy argue!\nWe respain, as the but not me;\nN"
+  }
+]

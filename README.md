@@ -150,3 +150,26 @@ python rand_samp.py `
 ```
 
 The script saves results to `rand_samp_report.json`.
+
+## Typical Sampling Experiment
+
+This experiment evaluates typical sampling, which selects tokens based on their deviation from the expected information content (entropy).
+
+### Files
+- `typical.ipynb`: notebook workflow
+- `typical.py`: CLI script
+
+### Run (PowerShell)
+
+```powershell
+python typical.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --tau-values 0.8 0.9 0.95 `
+  --runs 5 `
+  --max-length 500
+```
+
+The script saves results to `typical_report.json`.
