@@ -1,0 +1,29 @@
+[
+  {
+    "p": 0.8,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0793,
+    "line_score_mean": 57.0165,
+    "cer_mean": 0.8082,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nFirst Murderer:\nAlack, they days all sweet sorrow friends.\nAnd thou before heart: all not well man\nWith that the had to should as him a soul\nAnd for where this his are prison in the save at\nBut breelly fouldies, what not court such our of comfort\nAs one with his laster it of his soulter.\n\nClown:\nHe a has said and your to his his be be house:\nWhat shall burds not him his lifes our about all,\nWhere wellse our their be ore the harge,\nBut whom back of your to should and out any that\nOf hear the an"
+  },
+  {
+    "p": 0.9,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0825,
+    "line_score_mean": 60.9823,
+    "cer_mean": 0.8111,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nFirst Murderer:\nWhere that I dread all upon the poor words,\nThou shalt with with hear far against peech.\nThou would thou welcome with done thee peace\nAs choised let play assides faul of me,\nWhich with there new blase they hearts,\nThat suich up in he thee daughter, with his should\nYour babouring four him as many our thoughts;\nWhithat, honour but that doubt of this hand,\nI'll that a wall in home tongue and the comfort,\nAnd in this foest the will I do fit thy rare?\nWherephed, we his loudy, and bu"
+  },
+  {
+    "p": 0.95,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0854,
+    "line_score_mean": 66.5546,
+    "cer_mean": 0.8107,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nRICHARD:\nBe not contentins, who art it; if her hate,\nDo I stancled, whose from in our beg,\nBut heart behat-say and his was indeed.\nO most my down, fare most bottague:\nYou as is life this hands toubt land's as sheep,\nOur honoursess to him dark any traum,\nNor hother will should will reclesst.\n\nMercuess:\nFor your such as busidess, but one shall now draught;\nMarch nable of this our happ our our this,\nThou good shapp'd whomese in friends,\nThat your calms, your must should four lames,\nAnd for their "
+  }
+]

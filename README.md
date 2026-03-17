@@ -105,3 +105,26 @@ python top_k.py `
 ```
 
 The script saves results to `top_k_report.json`.
+
+## Top-p (Nucleus) Sampling Experiment
+
+This experiment evaluates top-p (nucleus) sampling using the same evaluation pipeline as the baseline.
+
+### Files
+- `top_p.ipynb`: notebook workflow
+- `top_p.py`: CLI script
+
+### Run (PowerShell)
+
+```powershell
+python top_p.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --p-values 0.8 0.9 0.95 `
+  --runs 5 `
+  --max-length 500
+  ```
+
+The script saves results to `top_p_report.json`.
