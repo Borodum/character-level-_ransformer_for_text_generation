@@ -128,3 +128,25 @@ python top_p.py `
   ```
 
 The script saves results to `top_p_report.json`.
+
+## Pure Random (Ancestral) Sampling Experiment
+
+This experiment evaluates pure random (ancestral) sampling using the same evaluation pipeline as previous methods.
+
+### Files
+- `rand_samp.ipynb`: notebook workflow
+- `rand_samp.py`: CLI script
+
+### Run (PowerShell)
+
+```powershell
+python rand_samp.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --runs 5 `
+  --max-length 500
+```
+
+The script saves results to `rand_samp_report.json`.
