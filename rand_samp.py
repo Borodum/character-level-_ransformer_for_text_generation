@@ -60,19 +60,15 @@ def load_vocab(char_to_idx_path, idx_to_char_path):
     return char_to_idx, idx_to_char
 
 
-def top_p_decode(
+def random_decode(
     model,
     start_text,
     char_to_idx,
     idx_to_char,
     device,
-    p=0.9,
     max_length=500,
     max_context=256,
 ):
-    if not (0 < p <= 1):
-        raise ValueError("p must be in (0, 1]")
-
     missing = [ch for ch in start_text if ch not in char_to_idx]
     if missing:
         raise ValueError(f"prompt contains characters outside vocabulary: {sorted(set(missing))}")
@@ -84,22 +80,9 @@ def top_p_decode(
     for _ in range(max_length):
         with torch.no_grad():
             logits = model(input_ids)
-            next_logits = logits[0, -1]
+            probs = torch.softmax(logits[0, -1], dim=-1)
 
-            probs = torch.softmax(next_logits, dim=-1)
-
-            sorted_probs, sorted_indices = torch.sort(probs, descending=True)
-            cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
-
-            cutoff = cumulative_probs > p
-            cutoff[0] = False  # ensure at least 1 token
-
-            filtered_probs = sorted_probs.clone()
-            filtered_probs[cutoff] = 0.0
-            filtered_probs /= filtered_probs.sum()
-
-            sampled_idx = torch.multinomial(filtered_probs, 1).item()
-            next_token = sorted_indices[sampled_idx].item()
+            next_token = torch.multinomial(probs, num_samples=1).item()
 
         generated.append(next_token)
         input_ids = torch.tensor([generated[-max_context:]], dtype=torch.long, device=device)
@@ -123,18 +106,13 @@ def compute_perplexity(model, data_tensor, vocab_size, device):
 
 
 def compute_ttr(text):
-    tokens = list(text)
-    return len(set(tokens)) / len(tokens) if tokens else 0.0
+    return len(set(text)) / len(text) if text else 0.0
 
 
 def shakespeare_line_score(text):
     lines = text.split("\n")
-    valid_lines = 0
-    for line in lines:
-        words = line.strip().split()
-        if 5 <= len(words) <= 12:
-            valid_lines += 1
-    return valid_lines / max(len(lines), 1) * 100
+    valid = sum(1 for line in lines if 5 <= len(line.strip().split()) <= 12)
+    return valid / max(len(lines), 1) * 100
 
 
 def levenshtein_distance(a, b):
@@ -144,10 +122,11 @@ def levenshtein_distance(a, b):
         return len(b)
     if len(b) == 0:
         return len(a)
+    
     prev = list(range(len(b) + 1))
-    for i, ca in enumerate(a, start=1):
+    for i, ca in enumerate(a, 1):
         curr = [i]
-        for j, cb in enumerate(b, start=1):
+        for j, cb in enumerate(b, 1):
             cost = 0 if ca == cb else 1
             curr.append(min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost))
         prev = curr
@@ -158,29 +137,20 @@ def compute_cer(pred_text, target_text):
     return levenshtein_distance(pred_text, target_text) / max(len(target_text), 1)
 
 
-def check_artifacts(paths):
-    missing = [str(p) for p in paths if not Path(p).exists()]
-    if missing:
-        raise FileNotFoundError("Missing required files:\n" + "\n".join(missing))
-
-
 def main():
-    parser = argparse.ArgumentParser(description="Top-p sampling evaluation")
+    parser = argparse.ArgumentParser(description="Random sampling evaluation")
     parser.add_argument("--model-path", default="greedy_model.pth")
     parser.add_argument("--val-path", default="val.npy")
     parser.add_argument("--char-to-idx", default="char_to_idx.pkl")
     parser.add_argument("--idx-to-char", default="idx_to_char.pkl")
     parser.add_argument("--prompt", default="First Citizen: Before we proceed any further, hear me speak.")
-    parser.add_argument("--p-values", type=float, nargs="+", default=[0.8, 0.9, 0.95])
     parser.add_argument("--runs", type=int, default=5)
     parser.add_argument("--max-length", type=int, default=500)
-    parser.add_argument("--report", default="top_p_report.json")
+    parser.add_argument("--report", default="rand_samp_report.json")
     args = parser.parse_args()
 
     torch.manual_seed(42)
     np.random.seed(42)
-
-    check_artifacts([args.model_path, args.val_path, args.char_to_idx, args.idx_to_char])
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     char_to_idx, idx_to_char = load_vocab(args.char_to_idx, args.idx_to_char)
@@ -196,29 +166,26 @@ def main():
 
     val_loss, val_ppl = compute_perplexity(model, val_tensor, vocab_size, device)
 
-    results = []
+    ttr_scores, line_scores, cer_scores, samples = [], [], [], []
 
-    for p in args.p_values:
-        ttr_scores, line_scores, cer_scores, samples = [], [], [], []
+    for _ in range(args.runs):
+        text = random_decode(model, args.prompt, char_to_idx, idx_to_char, device, max_length=args.max_length)
+        samples.append(text)
+        ttr_scores.append(compute_ttr(text))
+        line_scores.append(shakespeare_line_score(text))
+        cer_scores.append(compute_cer(text[:len(val_text)], val_text[:len(text)]))
 
-        for _ in range(args.runs):
-            text = top_p_decode(model, args.prompt, char_to_idx, idx_to_char, device, p=p, max_length=args.max_length)
-            samples.append(text)
-            ttr_scores.append(compute_ttr(text))
-            line_scores.append(shakespeare_line_score(text))
-            cer_scores.append(compute_cer(text[:len(val_text)], val_text[:len(text)]))
+    result = {
+        "method": "random_sampling",
+        "val_loss": round(val_loss, 4),
+        "val_ppl": round(val_ppl, 4),
+        "ttr_mean": round(float(np.mean(ttr_scores)), 4),
+        "line_score_mean": round(float(np.mean(line_scores)), 4),
+        "cer_mean": round(float(np.mean(cer_scores)), 4),
+        "sample_text": samples[0],
+    }
 
-        results.append({
-            "p": p,
-            "val_loss": round(val_loss, 4),
-            "val_ppl": round(val_ppl, 4),
-            "ttr_mean": round(float(np.mean(ttr_scores)), 4),
-            "line_score_mean": round(float(np.mean(line_scores)), 4),
-            "cer_mean": round(float(np.mean(cer_scores)), 4),
-            "sample_text": samples[0],
-        })
-
-    Path(args.report).write_text(json.dumps(results, indent=2), encoding="utf-8")
+    Path(args.report).write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(f"Saved report to {args.report}")
 
 
