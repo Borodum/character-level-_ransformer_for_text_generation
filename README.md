@@ -173,3 +173,26 @@ python typical.py `
 ```
 
 The script saves results to `typical_report.json`.
+
+## Mirostat Sampling Experiment
+
+This experiment evaluates Mirostat, an adaptive sampling method that dynamically controls generation entropy (surprise) during decoding.
+
+### Files
+- `mirostat.ipynb`: notebook workflow  
+- `mirostat.py`: CLI script  
+
+### Run (PowerShell)
+
+```powershell
+python mirostat.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --tau-values 3.0 5.0 7.0 `
+  --eta 0.5 `
+  --runs 5 `
+  --max-length 500
+```
+The script saves results to `mirostat_report.json`.
