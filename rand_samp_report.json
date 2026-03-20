@@ -1,0 +1,11 @@
+[
+  {
+    "method": "random_sampling",
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0904,
+    "line_score_mean": 57.3063,
+    "cer_mean": 0.8207,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nOXFORD:\nAs thou we on'er modstay.\nThe besech touble for our so.\n\nROMEO:\nBut I have good state her, or night ever to age\nAngeound thy brothers and courl hate;\nMore make not should dispancious horse.\n\nPARINGt:\nNo, what never? whither?\n\nPRINCE XI:\nO said yourse case; much speak use and his nead?\n\nFROMTLIUS:\nNot mear, by life,\nHe's enter gother, hearts I will not soul:\nThere are eversion of shound I saw may eass as now:\nKet Duke of Marcham!\nFor thereforestious, hearth passa'd-has baws,\nAnd wheich "
+  }
+]

@@ -77,8 +77,11 @@ python beam_search.py `
 ```
 
 The script saves results to `beam_search_report.json`.
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
 
 ## Top-k Experiment
 
@@ -108,6 +111,7 @@ python top_k.py `
 
 The script saves results to `top_k_report.json`.
 
+<<<<<<< HEAD
 ## Top-p Experiment
 
 This repository now also includes top-p (nucleus) sampling evaluation with the same metrics:
@@ -116,6 +120,18 @@ This repository now also includes top-p (nucleus) sampling evaluation with the s
 - `top_p.py`: CLI script
 
 ### Run (PowerShell)
+=======
+## Top-p (Nucleus) Sampling Experiment
+
+This experiment evaluates top-p (nucleus) sampling using the same evaluation pipeline as the baseline.
+
+### Files
+- `top_p.ipynb`: notebook workflow
+- `top_p.py`: CLI script
+
+### Run (PowerShell)
+
+>>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
 ```powershell
 python top_p.py `
   --model-path greedy_model.pth `
@@ -125,6 +141,7 @@ python top_p.py `
   --p-values 0.8 0.9 0.95 `
   --runs 5 `
   --max-length 500
+<<<<<<< HEAD
 ```
 
 The script saves results to `top_p_report.json`.
@@ -177,3 +194,76 @@ Generated plots:
 - `plots/stronger/line_score.png`
 - `plots/stronger/cer.png`
 >>>>>>> Stashed changes
+=======
+  ```
+
+The script saves results to `top_p_report.json`.
+
+## Pure Random (Ancestral) Sampling Experiment
+
+This experiment evaluates pure random (ancestral) sampling using the same evaluation pipeline as previous methods.
+
+### Files
+- `rand_samp.ipynb`: notebook workflow
+- `rand_samp.py`: CLI script
+
+### Run (PowerShell)
+
+```powershell
+python rand_samp.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --runs 5 `
+  --max-length 500
+```
+
+The script saves results to `rand_samp_report.json`.
+
+## Typical Sampling Experiment
+
+This experiment evaluates typical sampling, which selects tokens based on their deviation from the expected information content (entropy).
+
+### Files
+- `typical.ipynb`: notebook workflow
+- `typical.py`: CLI script
+
+### Run (PowerShell)
+
+```powershell
+python typical.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --tau-values 0.8 0.9 0.95 `
+  --runs 5 `
+  --max-length 500
+```
+
+The script saves results to `typical_report.json`.
+
+## Mirostat Sampling Experiment
+
+This experiment evaluates Mirostat, an adaptive sampling method that dynamically controls generation entropy (surprise) during decoding.
+
+### Files
+- `mirostat.ipynb`: notebook workflow  
+- `mirostat.py`: CLI script  
+
+### Run (PowerShell)
+
+```powershell
+python mirostat.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --tau-values 3.0 5.0 7.0 `
+  --eta 0.5 `
+  --runs 5 `
+  --max-length 500
+```
+The script saves results to `mirostat_report.json`.
+>>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef

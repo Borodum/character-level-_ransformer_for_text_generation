@@ -60,22 +60,18 @@ def load_vocab(char_to_idx_path, idx_to_char_path):
     return char_to_idx, idx_to_char
 
 
-def top_p_decode(
+def top_k_decode(
     model,
     start_text,
     char_to_idx,
     idx_to_char,
     device,
-    p=0.9,
+    k=40,
     max_length=500,
     max_context=256,
 ):
-<<<<<<< HEAD
-    if p <= 0.0 or p > 1.0:
-=======
-    if not (0 < p <= 1):
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
-        raise ValueError("p must be in (0, 1]")
+    if k < 1:
+        raise ValueError("k must be >= 1")
 
     missing = [ch for ch in start_text if ch not in char_to_idx]
     if missing:
@@ -89,36 +85,12 @@ def top_p_decode(
         with torch.no_grad():
             logits = model(input_ids)
             next_logits = logits[0, -1]
-<<<<<<< HEAD
-=======
 
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
-            probs = torch.softmax(next_logits, dim=-1)
-
-            sorted_probs, sorted_indices = torch.sort(probs, descending=True)
-            cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
-<<<<<<< HEAD
-            cutoff = torch.searchsorted(cumulative_probs, torch.tensor(p, device=device)).item()
-            cutoff = min(cutoff, sorted_probs.numel() - 1)
-
-            nucleus_probs = sorted_probs[: cutoff + 1]
-            nucleus_indices = sorted_indices[: cutoff + 1]
-            nucleus_probs = nucleus_probs / nucleus_probs.sum()
-
-            sampled_pos = torch.multinomial(nucleus_probs, num_samples=1).item()
-            next_token = nucleus_indices[sampled_pos].item()
-=======
-
-            cutoff = cumulative_probs > p
-            cutoff[0] = False  # ensure at least 1 token
-
-            filtered_probs = sorted_probs.clone()
-            filtered_probs[cutoff] = 0.0
-            filtered_probs /= filtered_probs.sum()
-
-            sampled_idx = torch.multinomial(filtered_probs, 1).item()
-            next_token = sorted_indices[sampled_idx].item()
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
+            use_k = min(k, next_logits.size(-1))
+            top_values, top_indices = torch.topk(next_logits, use_k)
+            probs = torch.softmax(top_values, dim=-1)
+            sampled_pos = torch.multinomial(probs, num_samples=1).item()
+            next_token = top_indices[sampled_pos].item()
 
         generated.append(next_token)
         input_ids = torch.tensor([generated[-max_context:]], dtype=torch.long, device=device)
@@ -129,10 +101,7 @@ def top_p_decode(
 def compute_perplexity(model, data_tensor, vocab_size, device):
     criterion = nn.CrossEntropyLoss()
     total_loss = 0.0
-<<<<<<< HEAD
 
-=======
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
     for seq in data_tensor:
         x = seq[:-1].unsqueeze(0).to(device)
         y = seq[1:].unsqueeze(0).to(device)
@@ -140,10 +109,7 @@ def compute_perplexity(model, data_tensor, vocab_size, device):
             logits = model(x)
             loss = criterion(logits.reshape(-1, vocab_size), y.reshape(-1))
         total_loss += loss.item()
-<<<<<<< HEAD
 
-=======
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
     avg_loss = total_loss / len(data_tensor)
     ppl = torch.exp(torch.tensor(avg_loss)).item()
     return avg_loss, ppl
@@ -171,10 +137,7 @@ def levenshtein_distance(a, b):
         return len(b)
     if len(b) == 0:
         return len(a)
-<<<<<<< HEAD
 
-=======
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
     prev = list(range(len(b) + 1))
     for i, ca in enumerate(a, start=1):
         curr = [i]
@@ -196,36 +159,21 @@ def check_artifacts(paths):
 
 
 def main():
-<<<<<<< HEAD
-    parser = argparse.ArgumentParser(description="Evaluate top-p sampling on char-level transformer.")
-=======
-    parser = argparse.ArgumentParser(description="Top-p sampling evaluation")
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
+    parser = argparse.ArgumentParser(description="Evaluate top-k sampling on char-level transformer.")
     parser.add_argument("--model-path", default="greedy_model.pth")
     parser.add_argument("--val-path", default="val.npy")
     parser.add_argument("--char-to-idx", default="char_to_idx.pkl")
     parser.add_argument("--idx-to-char", default="idx_to_char.pkl")
     parser.add_argument("--prompt", default="First Citizen: Before we proceed any further, hear me speak.")
-<<<<<<< HEAD
     parser.add_argument("--max-length", type=int, default=500)
     parser.add_argument("--runs", type=int, default=5)
-    parser.add_argument("--p-values", type=float, nargs="+", default=[0.8, 0.9, 0.95])
+    parser.add_argument("--k-values", type=int, nargs="+", default=[10, 40, 100])
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--report", default="top_p_report.json")
+    parser.add_argument("--report", default="top_k_report.json")
     args = parser.parse_args()
 
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
-=======
-    parser.add_argument("--p-values", type=float, nargs="+", default=[0.8, 0.9, 0.95])
-    parser.add_argument("--runs", type=int, default=5)
-    parser.add_argument("--max-length", type=int, default=500)
-    parser.add_argument("--report", default="top_p_report.json")
-    args = parser.parse_args()
-
-    torch.manual_seed(42)
-    np.random.seed(42)
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
 
     check_artifacts([args.model_path, args.val_path, args.char_to_idx, args.idx_to_char])
 
@@ -242,24 +190,23 @@ def main():
     val_text = "".join(idx_to_char[int(i)] for seq in val_tensor for i in seq)
 
     val_loss, val_ppl = compute_perplexity(model, val_tensor, vocab_size, device)
-<<<<<<< HEAD
     print(f"Validation Loss: {val_loss:.4f} | Perplexity: {val_ppl:.3f}")
 
     results = []
-    for p in args.p_values:
+    for k in args.k_values:
         ttr_scores = []
         line_scores = []
         cer_scores = []
         generated_samples = []
 
         for _ in range(args.runs):
-            generated = top_p_decode(
+            generated = top_k_decode(
                 model,
                 args.prompt,
                 char_to_idx,
                 idx_to_char,
                 device,
-                p=p,
+                k=k,
                 max_length=args.max_length,
             )
             generated_samples.append(generated)
@@ -268,51 +215,25 @@ def main():
             cer_scores.append(compute_cer(generated[: len(val_text)], val_text[: len(generated)]))
 
         row = {
-=======
-
-    results = []
-
-    for p in args.p_values:
-        ttr_scores, line_scores, cer_scores, samples = [], [], [], []
-
-        for _ in range(args.runs):
-            text = top_p_decode(model, args.prompt, char_to_idx, idx_to_char, device, p=p, max_length=args.max_length)
-            samples.append(text)
-            ttr_scores.append(compute_ttr(text))
-            line_scores.append(shakespeare_line_score(text))
-            cer_scores.append(compute_cer(text[:len(val_text)], val_text[:len(text)]))
-
-        results.append({
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
-            "p": p,
+            "k": k,
             "val_loss": round(val_loss, 4),
             "val_ppl": round(val_ppl, 4),
             "ttr_mean": round(float(np.mean(ttr_scores)), 4),
             "line_score_mean": round(float(np.mean(line_scores)), 4),
             "cer_mean": round(float(np.mean(cer_scores)), 4),
-<<<<<<< HEAD
             "sample_text": generated_samples[0],
         }
         results.append(row)
 
-        print(f"\nTop-p={p:.2f}")
+        print(f"\nTop-k={k}")
         print(f"TTR (mean): {row['ttr_mean']:.4f}")
         print(f"Shakespearean Line Structure Score (mean): {row['line_score_mean']:.2f}%")
         print(f"CER (mean): {row['cer_mean']:.4f}")
         print("Sample Generated Text:")
         print(generated_samples[0])
 
-    report_path = Path(args.report)
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(json.dumps(results, indent=2), encoding="utf-8")
-    print(f"\nSaved report to {args.report}")
-=======
-            "sample_text": samples[0],
-        })
-
     Path(args.report).write_text(json.dumps(results, indent=2), encoding="utf-8")
-    print(f"Saved report to {args.report}")
->>>>>>> cda39567cff2c44cdbad03c17a9496a7bbbe51ef
+    print(f"\nSaved report to {args.report}")
 
 
 if __name__ == "__main__":

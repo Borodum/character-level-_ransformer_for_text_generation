@@ -1,0 +1,29 @@
+[
+  {
+    "tau": 3.0,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0829,
+    "line_score_mean": 55.2117,
+    "cer_mean": 0.8136,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nKING RICHARD II:\nNeathink on his like more house too the secrets\nThou this holl mount and to means;\nWho were the his fair that business of souls,\nAnd soopp their sumble of my looks.\n\nMERCUTIO:\nIf aitch alm and how shall be honest be a turgain\nOf that be the thity the shapperity of a highners\nThat hear shame will to beshild out arm thring,\nOur shelf and touch all'd frawell.\n\nCORIOLANUS:\nThen sight him but out out has fear,\nTish thou what as see it in him a will,\nWe will to soul, and the their o"
+  },
+  {
+    "tau": 5.0,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0825,
+    "line_score_mean": 55.081,
+    "cer_mean": 0.8121,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nMENENIUS:\nHis mother teal of hard hope them, and so that hear,\nWhen help our thy hath sorrad a brads.\n\nROMEO:\nAnd he how to my love? they gods, with said, but makes\nAs alid, and this liffer of highndrands.\n\nGREOLA:\nIf thou have as it.\n\nGLOUCESTER:\nThe so as to hurth, and and the has thought he\nAndieutes or the world, but the was and of home,\nWherefoorth war, this breaching and thou abrroad,\nOr him house too the crann as true the wall:\nThe says all our those stafting the will.\n\nWARWICK:\nO what,"
+  },
+  {
+    "tau": 7.0,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0793,
+    "line_score_mean": 64.7923,
+    "cer_mean": 0.8086,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nShepherdond:\nHow the beak thou to be that her he sound of that works,\nWith he's farely a steet one thou honour with\nThousand my too me that see his soul, by thee tongue.\n\nBUCKINGHAM:\nTusant, therefore woesen to see, if this foull:\nWell, they have titee whith a shail see to thy hounds.\n\nMERCUTOR:\nO, must whould toubble to my heir, that whom too more\nI' hour hearts; but therefore as of all\nOur to his soulded him, trest a soul.\n\nMERCUTIO:\nWhy, said outr home, true to their theread towers,\nAnd his"
+  }
+]
