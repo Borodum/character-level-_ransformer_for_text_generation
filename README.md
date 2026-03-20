@@ -77,3 +77,103 @@ python beam_search.py `
 ```
 
 The script saves results to `beam_search_report.json`.
+<<<<<<< Updated upstream
+=======
+
+## Top-k Experiment
+
+This branch also includes top-k sampling evaluation with the same metrics:
+
+### Files
+- `top_k.ipynb`: notebook workflow
+- `top_k.py`: CLI script
+
+### Run (PowerShell)
+Required artifacts:
+- `val.npy`
+- `char_to_idx.pkl`
+- `idx_to_char.pkl`
+- `greedy_model.pth`
+
+```powershell
+python top_k.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --k-values 10 40 100 `
+  --runs 5 `
+  --max-length 500
+```
+
+The script saves results to `top_k_report.json`.
+
+## Top-p Experiment
+
+This repository now also includes top-p (nucleus) sampling evaluation with the same metrics:
+
+### Files
+- `top_p.py`: CLI script
+
+### Run (PowerShell)
+```powershell
+python top_p.py `
+  --model-path greedy_model.pth `
+  --val-path val.npy `
+  --char-to-idx char_to_idx.pkl `
+  --idx-to-char idx_to_char.pkl `
+  --p-values 0.8 0.9 0.95 `
+  --runs 5 `
+  --max-length 500
+```
+
+The script saves results to `top_p_report.json`.
+
+## Stronger Model + Comparison Plots
+
+To build a stronger checkpoint (same architecture, continued training), re-run all methods for both models, and generate metric plots:
+
+### Files
+- `train_stronger_model.py`: continues training from `greedy_model.pth` and saves `stronger_model.pth`
+- `plot_model_metrics.py`: builds 3 metric charts per model (TTR, Line Score, CER)
+
+### Example Workflow (PowerShell)
+```powershell
+# 1) Train stronger checkpoint
+python train_stronger_model.py `
+  --base-model greedy_model.pth `
+  --train-path train.npy `
+  --val-path val.npy `
+  --output-model stronger_model.pth `
+  --report reports/stronger/training_report.json `
+  --epochs 25 `
+  --batch-size 64 `
+  --lr 1e-4
+
+# 2) Re-run methods for baseline model
+python beam_search.py --model-path greedy_model.pth --beam-widths 1 3 5 --report reports/baseline/beam_search_report.json
+python temperature_scaling.py --model-path greedy_model.pth --report reports/baseline/temperature_scaling_report.json
+python top_k.py --model-path greedy_model.pth --report reports/baseline/top_k_report.json
+python top_p.py --model-path greedy_model.pth --report reports/baseline/top_p_report.json
+
+# 3) Re-run methods for stronger model
+python beam_search.py --model-path stronger_model.pth --beam-widths 1 3 5 --report reports/stronger/beam_search_report.json
+python temperature_scaling.py --model-path stronger_model.pth --report reports/stronger/temperature_scaling_report.json
+python top_k.py --model-path stronger_model.pth --report reports/stronger/top_k_report.json
+python top_p.py --model-path stronger_model.pth --report reports/stronger/top_p_report.json
+
+# 4) Build plots
+python plot_model_metrics.py `
+  --baseline-reports reports/baseline `
+  --stronger-reports reports/stronger `
+  --out-dir plots
+```
+
+Generated plots:
+- `plots/baseline/ttr.png`
+- `plots/baseline/line_score.png`
+- `plots/baseline/cer.png`
+- `plots/stronger/ttr.png`
+- `plots/stronger/line_score.png`
+- `plots/stronger/cer.png`
+>>>>>>> Stashed changes

@@ -228,3 +228,6 @@ input.txt
 # checkpoints
 checkpoints/
 checkpoints_tiny/
+
+# local portable runtime
+.tools/

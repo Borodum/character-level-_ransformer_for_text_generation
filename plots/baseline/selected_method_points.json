@@ -1,0 +1,42 @@
+{
+  "Greedy": {
+    "ttr": 0.0714,
+    "line_score": 84.6154,
+    "cer": 0.7929,
+    "source": {
+      "beam_width": 1
+    }
+  },
+  "Beam Search": {
+    "ttr": 0.075,
+    "line_score": 58.8235,
+    "cer": 0.8,
+    "source": {
+      "beam_width": 3
+    }
+  },
+  "Temperature": {
+    "ttr": 0.0868,
+    "line_score": 60.0522,
+    "cer": 0.8018,
+    "source": {
+      "temperature": 1.0
+    }
+  },
+  "Top-k": {
+    "ttr": 0.0861,
+    "line_score": 65.2167,
+    "cer": 0.8146,
+    "source": {
+      "k": 100
+    }
+  },
+  "Top-p": {
+    "ttr": 0.0786,
+    "line_score": 69.023,
+    "cer": 0.8086,
+    "source": {
+      "p": 0.8
+    }
+  }
+}

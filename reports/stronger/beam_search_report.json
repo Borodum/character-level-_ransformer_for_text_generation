@@ -1,0 +1,29 @@
+[
+  {
+    "beam_width": 1,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr": 0.0679,
+    "line_score": 46.1538,
+    "cer": 0.7946,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nCORIOLANUS:\nI will the shall be the shall of the stands,\nAnd the see that the see the stand of the stand\nThat the stand of the stand of the stands,\nAnd the seek of the seem of the seather of the\nTown the the the the the the the the the the the there\nOf the the the the the the the the the the the there\nOf the the the the the the the the the the the there\nOf the the the the the the the the the the the there\nOf the the the the the the the the the the the there\nOf the the the the the the the the t"
+  },
+  {
+    "beam_width": 3,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr": 0.0786,
+    "line_score": 64.7059,
+    "cer": 0.8107,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nCORIOLANUS:\nWhat is the stand of their than thoughts thee,\nAnd though this thoughts though hast thou art this\nThat thou that thou shalt to the shall be the world.\n\nKING RICHARD II:\nThen the shall of your highndrendss and their\nThat thought to the that thought of this field\nThat thought to the that thought of this field\nThat thought to the that thought of this field\nThat thought to the that thought of this field\nWith the that thought of the things of the things.\n\nCORIOLANUS:\nWhy, that is the th"
+  },
+  {
+    "beam_width": 5,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr": 0.0804,
+    "line_score": 42.8571,
+    "cer": 0.825,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nKING RICHARD III:\nTherefore, my lord.\n\nKING RICHARD III:\nWhat you have thought thought of this death.\n\nKING RICHARD III:\nWhy, therefore thousand of this fortune and their\nThat thought their that thought of the thanks.\n\n\nKING RICHARD III:\nWhy, then, that thought thought that thought of the\nThat thought that the that thought of their thanks\nThat the that thought of the that thought of this?\n\nMERCUTIO:\nWhy, then, that thought that thought that the that thought\nWhith that thought that thought the "
+  }
+]

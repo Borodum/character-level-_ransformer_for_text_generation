@@ -1,0 +1,29 @@
+[
+  {
+    "beam_width": 1,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr": 0.0714,
+    "line_score": 84.6154,
+    "cer": 0.7929,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nKING RICHARD III:\nThe shall be the shall be the should be the souls\nThat the shall be the should be the shall be thee\nThat the shall be the should be the see of the see\nThat the shall be the shall be the should be the should\nOf hearth the should be the should be the should\nWhat he the the the the the the the the the thee\nOur of the should be the should be the should be the\nThat the the the the the the the the the the thee\nOur of the should be the should be the should be the\nThat the the the th"
+  },
+  {
+    "beam_width": 3,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr": 0.075,
+    "line_score": 58.8235,
+    "cer": 0.8,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nKING RICHARD III:\nWhat you have thou hast thou hast thou art thou hast\nThat thou hast to the counter's to the cousin,\nAnd thou that thou art thou hast of the country.\n\nKING RICHARD III:\nWhy, therefore of the world, and thoughts,\nWhich is of the should to the world of the world.\n\n\nKING RICHARD III:\nWhy, that thought that thought that thought that thou\nWhat that thought that thought that thought of the\nAnd the the that thought of the should to the see\nOur of the with hearth, and therefore, that "
+  },
+  {
+    "beam_width": 5,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr": 0.0821,
+    "line_score": 58.8235,
+    "cer": 0.8036,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nKING RICHARD III:\nWhat you have thou hast thou hast thou hast thou hast\nThat thou hast the counter's to the prince,\nAnd thought to this fortune of their of thee,\nAnd thou that thou with the shall of the world.\n\n\nKING RICHARD III:\nWhy, therefore, and therefore, that thought of the\nTouch of the should and the should and their should\nWith that thought of their thanks of the world.\n\nGLOUCESTER:\nWhy, therefore, that thought thought thought that thought\nWhich hearth, that thought that thought though"
+  }
+]

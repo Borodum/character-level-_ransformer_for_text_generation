@@ -1,0 +1,29 @@
+[
+  {
+    "p": 0.8,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr_mean": 0.0814,
+    "line_score_mean": 64.9087,
+    "cer_mean": 0.8093,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nBRUTUS:\nHe shall thee be intented for your such his word.\n\nKING EDWARD IV:\nO lady of Clarence my be with his fill and\nTo himself. I were not the books a foes\nWhich is more head and our his father.\n\nKING RICHARD III:\nA thoughts and to be hour orderst with orse,\nThat make a their hollow in we in this art\nThat be a tolding him traight to the trangest:\nMarchaps it the should art to the daise thee thank,\nWhere die there their honour will will I\nOur ball: as a those too be that will disch, to him\nAs"
+  },
+  {
+    "p": 0.9,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr_mean": 0.0846,
+    "line_score_mean": 57.7031,
+    "cer_mean": 0.8104,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\nAre had he abraved to her made the better,\nWith married our stay dingriced for a pluck fair\nWith alms, and my from every forth.\nThen, that's a secret woe be to little from a foe,\nAnd how of your better in a will.\n\nWARWICK:\nAy, my good man too to this away of this.\n\nAUTOLYCUS:\nO, then forguine is and it his rechard.\n\n\nSome:\nHe shall of our with is it?\n\nPRIS ERCHARD:\nO Lord Soff, I am ba a grack you his serrve\nAby but without with their breen the be out\nWhilst could shall tawput the dear out a re"
+  },
+  {
+    "p": 0.95,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr_mean": 0.0871,
+    "line_score_mean": 50.5764,
+    "cer_mean": 0.8118,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\nFarewom he servage, a substance: I am they dear;\nUnles dispection me as power-hate here!\nHis all to the saits of this place, and you chance,\nThe with sackness to his royal say wing;\nBut your by withdren though of help out it;\nThat, mise them, and you this house have at\nIf the blood of Eartand.\n\nWARWICK:\nHow this lauch and foest, lay fair fealt us.\n\n\nQUEEEN ELIZABETH:\nMy lord, git and the thoughts not more out\nTo their is our and danger out spiritances.\n\nKING Edward your stim:\nNow, as too that's"
+  }
+]

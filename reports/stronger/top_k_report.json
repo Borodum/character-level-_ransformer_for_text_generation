@@ -1,0 +1,29 @@
+[
+  {
+    "k": 10,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr_mean": 0.0854,
+    "line_score_mean": 57.0635,
+    "cer_mean": 0.8175,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nLEONTES:\nI wither dead; but, I say, buy and twenty should,\nBe band they break agard friends of thee,\nWhich weave you with innoted oft them as apper\nAnd togeth me would the bode failt the reason\nWhom ca every is a will at them; though hat.\n\n\nPRIP ELIZA:\nGo traitors, year agair, as we are a the firsher\nYour hither and all to these were her wandshy'd is.\n\nCORIOLANUS:\nI he had hath they day!\nOur am there back yet to the thurth is hust\nNay he souldiers of suit with or the hass farewer. Go, why watc"
+  },
+  {
+    "k": 40,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr_mean": 0.0911,
+    "line_score_mean": 48.0697,
+    "cer_mean": 0.8143,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nGLOUCESTER:\nI'll died you no this lord.\nLay, as but the poince of mine!\nVirtafful, here were to me the say there is,\nI am venture of his word father and sweeth thy.\n\nANGELO:\nThe percial hopse, my broy, be tco maide the came.\n\nISABELLA:\nAddiest is us that they my\nstand of the all: he thought to commented. I aie\nOurd not the thousaterst to gone.\nVighaling Tyrress thou were are they stonguers,\nWith that should preson wrord, these would then time.\n\nWARWICCK:\nI do rex-situe one crate and out ournic"
+  },
+  {
+    "k": 100,
+    "val_loss": 1.6066,
+    "val_ppl": 4.986,
+    "ttr_mean": 0.0904,
+    "line_score_mean": 55.4563,
+    "cer_mean": 0.8171,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nDUKE OF SAUNE:\nYet will into desire.' To good first, here,\nBrithees he you shall her crater, with what'st\nNay may whice in untructiblle,\nSometimely and you shall as every.\n\nCALISA:\nInto in my gland, what suddferschianbring frathen:\nThey was those tands your brettlemand lave.\nCome touclanted ears, them wear my case toward\nOf them lest.\n\nNuthR Senator;\nAnd peace thy glavend of the things oxfood\nOr abboad our art Mantuarer away: the furtherd\nIf have in farewell but off'd we croointer:\nYour most u"
+  }
+]

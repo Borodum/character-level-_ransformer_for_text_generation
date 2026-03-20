@@ -1,0 +1,29 @@
+[
+  {
+    "p": 0.8,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0786,
+    "line_score_mean": 69.023,
+    "cer_mean": 0.8086,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nPOMPEY:\nA laster you should see and hours to him,\nAs ass this dead, and by thy day, of bornicie,\nFor what I may to what and him thou worth,\nAnd I boy this fallower that double when,\nSo my great to dischard, and friends with our mean,\nOur is faulter's for a shore, or thee art,\nThat seathing himself, the arther of the croy or father.\n\nSecownds:\nAy, much am horted shame out in the tonguers a ourse\nOf he dear at can to hear a their worse,\nWith saws and once for the shapper of it.\n\nCORIOLANUS:\nYou "
+  },
+  {
+    "p": 0.9,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0839,
+    "line_score_mean": 63.2521,
+    "cer_mean": 0.8114,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\nWho counter? O, behod honour! Warwick is the chorce,\nAnd fire fortunious, as has devile,\nThe fall my life, as thou hast affect thy lady\nof should respire up, out the senate bed;\nAnd welcome by to commmanding in freects;\nAnd my thoughts, I dangest as yourself,\nWhich should found, will but it father.\n\nANGELO:\nWhat crevent this oncestive is thoughts, in how\nOurs thee one a foour tonguess for which his of myself,\nBecatory spay high eashor of will.\n\nFRORD LAURET:\nThough father man hour boind cheep,\n"
+  },
+  {
+    "p": 0.95,
+    "val_loss": 1.6405,
+    "val_ppl": 5.1577,
+    "ttr_mean": 0.0886,
+    "line_score_mean": 50.876,
+    "cer_mean": 0.8146,
+    "sample_text": "First Citizen: Before we proceed any further, hear me speak.\n\nPERDITA:\nProvention.\n\nROMEO:\n\nHENRRY BOLINGBROKE:\nForthuch is marcious, whose the daughter of his:\nNor earnher night repare his estrain likess,\nWhich brought the poar filds, that knew and with was\nIs busilly exceess of my part:\nWith foul didg runk be of a dance.\n\nYoure! my whoer:\nNome do murdern is bear; and, that imusanted\nOr hearth agairds liptt the art of the seath---\nBush:\nHow retheer was spurt obe of the founder's tare fore\nLest our in the shall ba cheek'd, thousand.\n\nRENS:\nMy off Hears w"
+  }
+]
